@@ -1,0 +1,201 @@
+function Show(){
+console.log("this is Show Function ");
+}
+undefined
+typeof Show;
+"function"
+Show.prototype;
+Show {}
+var r = new Show();
+VM123:3 this is Show Function 
+undefined
+r;
+Show {}
+typeof r;
+"object"
+r instanceof Show;
+true
+function Employee(id , name){
+this.id = id;
+this.name = name;
+}
+undefined
+Employee.prototype;
+Employee {}
+typeof Employee;
+"function"
+console.log(Employee.prototype);
+VM295:2 Employee {}
+undefined
+console.dir(Employee.prototype);
+VM332:2 Employeeconstructor: function Employee(id , name){arguments: nullcaller: nulllength: 2name: "Employee"prototype: Employee__proto__: function Empty() {}<function scope>__proto__: Object__defineGetter__: function __defineGetter__() { [native code] }__defineSetter__: function __defineSetter__() { [native code] }__lookupGetter__: function __lookupGetter__() { [native code] }__lookupSetter__: function __lookupSetter__() { [native code] }constructor: function Object() { [native code] }hasOwnProperty: function hasOwnProperty() { [native code] }isPrototypeOf: function isPrototypeOf() { [native code] }propertyIsEnumerable: function propertyIsEnumerable() { [native code] }toLocaleString: function toLocaleString() { [native code] }toString: function toString() { [native code] }valueOf: function valueOf() { [native code] }get __proto__: function __proto__() { [native code] }set __proto__: function __proto__() { [native code] }
+undefined
+var ram = new Employee(1001,"Ram");
+undefined
+ram;
+Employee {id: 1001, name: "Ram"}
+var shyam =new Employee(1002,"Shyam");
+undefined
+shyam;
+Employee {id: 1002, name: "Shyam"}
+typeof ram;
+"object"
+typeof shyam;
+"object"
+ram instanceof Employee;
+true
+shyam instanceof Employee;
+true
+ram.salary = 9000;
+9000
+ram;
+Employee {id: 1001, name: "Ram", salary: 9000}
+shyam;
+Employee {id: 1002, name: "Shyam"}
+console.dir(Employee.prototype);
+VM542:2 Employeeconstructor: function Employee(id , name){__proto__: Object
+undefined
+Employee.prototype.bonus = 100;
+100
+ram;
+Employee {id: 1001, name: "Ram", salary: 9000, bonus: 100}
+shyam;
+Employee {id: 1002, name: "Shyam", bonus: 100}
+Employee.prototype.print=function(){
+console.log("Id "+this.id+" Name "+this.name);
+}
+function (){
+console.log("Id "+this.id+" Name "+this.name);
+}
+console.dir(Employee.prototype);
+VM686:2 Employeebonus: 100constructor: function Employee(id , name){print: function (){__proto__: Object
+undefined
+ram.print();
+VM645:3 Id 1001 Name Ram
+undefined
+shyam.print();
+VM645:3 Id 1002 Name Shyam
+undefined
+console.dir(ram);
+VM773:2 Employeeid: 1001name: "Ram"salary: 9000__proto__: Employeebonus: 100constructor: function Employee(id , name){print: function (){__proto__: Object
+undefined
+console.dir(shyam);
+VM825:2 Employeeid: 1002name: "Shyam"__proto__: Employeebonus: 100constructor: function Employee(id , name){print: function (){__proto__: Object
+undefined
+ram.print();
+VM645:3 Id 1001 Name Ram
+undefined
+Employee.show=function(){
+console.log("Inside Show Call ");
+}
+function (){
+console.log("Inside Show Call ");
+}
+Employee.show();
+VM890:3 Inside Show Call 
+undefined
+Employee.print();
+VM929:2 Uncaught TypeError: undefined is not a function
+ram.print();
+VM645:3 Id 1001 Name Ram
+undefined
+ram;
+Employee {id: 1001, name: "Ram", salary: 9000, bonus: 100, print: function}
+function Person(age,gender){
+this.age = age;
+this.gender = gender;
+}
+undefined
+var obj = new Person(21,'Male');
+undefined
+obj;
+Person {age: 21, gender: "Male"}
+ram;
+Employee {id: 1001, name: "Ram", salary: 9000, bonus: 100, print: function}
+console.dir(ram);
+VM1074:2 Employeeid: 1001name: "Ram"salary: 9000__proto__: Employee
+undefined
+ram.__proto__=obj;
+Person {age: 21, gender: "Male"}
+console.dir(ram);
+VM1115:2 Employeeid: 1001name: "Ram"salary: 9000__proto__: Personage: 21gender: "Male"__proto__: Person
+undefined
+ram.id;
+1001
+ram.name;
+"Ram"
+ram.age;
+21
+ram.gender;
+"Male"
+for(i in ram){
+console.log(i);
+}
+VM1189:3 id
+VM1189:3 name
+VM1189:3 salary
+VM1189:3 age
+VM1189:3 gender
+undefined
+for(i in ram){
+console.log(i+"  "+ram[i]);
+}
+VM1190:3 id  1001
+VM1190:3 name  Ram
+VM1190:3 salary  9000
+VM1190:3 age  21
+VM1190:3 gender  Male
+undefined
+var x = [90,20,44,33,88];
+undefined
+for(var i = 0 ; i<x.length; i++)
+{
+console.log(x[i]);
+}
+VM1257:4 90
+VM1257:4 20
+VM1257:4 44
+VM1257:4 33
+VM1257:4 88
+undefined
+x.forEach(function(index,value){
+console.log("Index is "+index+" And Value is "+value);
+}
+VM1318:5 Uncaught SyntaxError: Unexpected token }
+x.forEach(function(index,value){
+console.log("Index is "+index+" And Value is "+value);
+}
+);
+VM1322:3 Index is 90 And Value is 0
+VM1322:3 Index is 20 And Value is 1
+VM1322:3 Index is 44 And Value is 2
+VM1322:3 Index is 33 And Value is 3
+VM1322:3 Index is 88 And Value is 4
+undefined
+x.forEach(function(value,index){
+console.log("Value is  "+value+" And Index is "+index);
+}
+);
+VM1323:3 Value is  90 And Index is 0
+VM1323:3 Value is  20 And Index is 1
+VM1323:3 Value is  44 And Index is 2
+VM1323:3 Value is  33 And Index is 3
+VM1323:3 Value is  88 And Index is 4
+undefined
+function adder(x){
+function add(y){
+return x + y;
+}
+return add;
+}
+undefined
+var x = adder(100);
+undefined
+x;
+function add(y){
+return x + y;
+}
+typeof x;
+"function"
+x(900);
+1000
