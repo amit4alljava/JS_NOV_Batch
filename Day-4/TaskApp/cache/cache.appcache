@@ -1,0 +1,16 @@
+CACHE MANIFEST  
+
+../model.js
+../newsworker.js
+../news.js
+../controller.js
+../custom.css
+NETWORK:
+*
+
+
+FALLBACK:
+../custom.css ../customoffline.css
+
+
+

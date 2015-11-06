@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html manifest="cache/cache.appcache">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="custom.css"/>
+    <script src="newsworker.js"></script>
+    <script src="ajax.js"></script>
+    <script src="model.js"></script>
+    <script src="controller.js"></script>
+    <script type="text/javascript">
+        //Check if a new cache is available on page load.
+        // Check if a new cache is available on page load.
+        window.addEventListener('load', function(e) {
+
+            window.applicationCache.addEventListener('updateready', function(e) {
+                if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+                    // Browser downloaded a new app cache.
+                    if (confirm('A new version of this site is available. Load it?')) {
+                        window.location.reload();
+                    }
+                } else {
+                    alert("No Update...");
+                    // Manifest didn't changed. Nothing new to server.
+                }
+            });
+
+        });
+    </script>
+</head>
+<body>
+<div>
+    <h2 id="showMessages"></h2>
+</div>
+<fieldset>
+    <legend>Task Todo List</legend>
+    <table>
+        <tr>
+            <td><label for="taskName">TaskName</label></td>
+            <td><input type="text"  id="taskName"/></td>
+        </tr>
+        <tr>
+            <td><label for="taskDesc">TaskDesc</label></td>
+            <td><input type="text"  id="taskDesc"/></td>
+        </tr>
+        <tr>
+            <td><button id="addtask">Add Task</button></td>
+            <td><button id="savetask">Save Task (Local Save)</button></td>
+            <td><button id="loadTaskFromServer">Load Task (On Server)</button></td>
+        </tr>
+    </table>
+</fieldset>
+<fieldset>
+    <legend>Task List</legend>
+    <ul></ul>
+</fieldset>
+<audio id="audioId"  >
+    <source src="audio/msg.mp3" type="audio/mp3" >
+</audio>
+</body>
+</html>
